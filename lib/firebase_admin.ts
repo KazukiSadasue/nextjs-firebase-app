@@ -8,8 +8,6 @@ if (admin.apps.length == 0) {
     ).toString()
   )
 
-  console.log(credential);
-
   admin.initializeApp({
     databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
     credential: admin.credential.cert(credential),
