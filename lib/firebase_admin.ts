@@ -1,5 +1,6 @@
 import * as admin from 'firebase-admin'
 
+// とりあえず
 if (admin.apps.length == 0) {
   const credential = JSON.parse(
     Buffer.from(
