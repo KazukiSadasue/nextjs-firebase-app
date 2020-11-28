@@ -1,12 +1,12 @@
 import * as admin from 'firebase-admin'
 
 if (admin.apps.length == 0) {
-  // Rebuild
   // 多分コメントアウトしている情報は不要なので削除(vercelの環境変数に4KB超えを設定出来ないため)
+  const privateKey = Buffer.from(process.env.FIREBASE_PRIVATE_KEY, 'base64').toString().replace(/\\n/g, '\n');
   const credential = {
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
     clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY,
+    privateKey: privateKey,
     // type: process.env.FIREBASE_ACCOUNT_TYPE,
     // private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
     // client_id: process.env.FIREBASE_CLIENT_ID,
