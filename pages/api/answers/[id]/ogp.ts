@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { createCanvas, registerFont, loadImage } from 'canvas'
 import * as path from 'path'
+import '../../../../lib/firebase_admin'
 import { firestore } from 'firebase-admin'
 import { Answer } from '../../../../models/Answer'
 import { Question } from '../../../../models/Question'
