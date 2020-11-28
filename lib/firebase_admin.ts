@@ -1,6 +1,7 @@
 import * as admin from 'firebase-admin'
 
 if (admin.apps.length == 0) {
+  // Rebuild
   // 多分コメントアウトしている情報は不要なので削除(vercelの環境変数に4KB超えを設定出来ないため)
   const credential = {
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
