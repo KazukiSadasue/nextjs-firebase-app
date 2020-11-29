@@ -1,8 +1,10 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Layout from '../../../components/Layout'
 import TwitterShareButton from '../../../components/TwitterShareButton'
 import { Answer } from '../../../models/Answer'
 import { Question } from '../../../models/Question'
+import { useAuthentication } from '../../../hooks/authentication'
 
 type Props = {
   answer: Answer
@@ -20,6 +22,7 @@ function getDescription(answer: Answer) {
 export default function AnswersShow(props: Props) {
   const description = getDescription(props.answer)
   const ogpImageUrl = `${process.env.NEXT_PUBLIC_WEB_URL}/api/answers/${props.answer.id}/ogp`
+  const { user } = useAuthentication()
 
   return (
     <Layout>
@@ -56,6 +59,15 @@ export default function AnswersShow(props: Props) {
               </div>
             </section>
 
+            <div>
+              {user && (
+                <p>
+                  <Link href="/users/me">
+                    <a className="btn btn-link">自分もみんなに質問してもらおう！</a>
+                  </Link>
+                </p>
+              )}
+            </div>
           </>
         </div>
       </div>

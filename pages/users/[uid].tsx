@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { FormEvent, useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { User } from '../../models/User'
@@ -102,6 +103,16 @@ export default function UserShow() {
                   </div>
                 </form>
               )}
+
+              <div>
+                {user && (
+                  <p>
+                    <Link href="/users/me">
+                      <a className="btn btn-link">自分もみんなに質問してもらおう！</a>
+                    </Link>
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>
